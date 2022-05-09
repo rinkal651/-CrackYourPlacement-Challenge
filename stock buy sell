@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        
+        int n=prices.size(), buy=prices[0], sell=buy;
+        int sum=0;
+        for(int i=1; i<n; i++){
+            if(buy>prices[i]){
+                buy=prices[i];
+            }
+            else{
+                sell=prices[i];
+                sum+=sell-buy;
+                buy=sell;
+            }
+            
+        }
+        return sum;
+}};
